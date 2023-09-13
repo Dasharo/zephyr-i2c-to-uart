@@ -1,0 +1,35 @@
+manifest:
+  self:
+    path: zephyr-i2c-to-uart 
+
+  defaults:
+    remote: upstream
+
+  remotes:
+    - name: upstream
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      revision: zephyr-v3.4.0
+      path: zephyr
+      west-commands: scripts/west-commands.yml
+
+    - name: cmsis
+      revision: 74981bf893e8b10931464b9945e2143d99a3f0a3
+      path: modules/hal/cmsis
+      groups:
+        - hal
+
+    - name: hal_espressif
+      revision: abe299333411cb37a1cb1dd0aa2ea35c27382604
+      path: modules/hal/espressif
+      west-commands: west/west-commands.yml
+      groups:
+        - hal
+
+    - name: hal_stm32
+      revision: c865374fc83d93416c0f380e6310368ff55d6ce2
+      path: modules/hal/stm32
+      groups:
+        - hal
