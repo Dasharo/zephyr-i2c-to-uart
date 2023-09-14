@@ -20,3 +20,9 @@ west build --board nucleo_l432kc zephyr-i2c-to-uart/app/
 ```
 west flash
 ```
+
+## Using
+
+By default, I2C is exposed on PA9 and PA10 pads. See the pinout
+[here](https://os.mbed.com/platforms/ST-Nucleo-L432KC/). All data coming from
+I2C is forwarded to virtual UART which works over USB (CDC-ACM).
