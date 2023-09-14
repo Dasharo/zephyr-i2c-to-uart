@@ -1,0 +1,28 @@
+&dma1 {
+	status = "okay";
+};
+
+&i2c1 {
+	status = "okay";
+	pinctrl-0 = <&i2c1_scl_pa9 &i2c1_sda_pa10>;
+};
+
+&usart1 {
+	status = "okay";
+	pinctrl-0 = <&usart1_tx_pb6 &usart1_rx_pb7>;
+};
+
+&usart2 {
+	dmas = <&dma1 7 2 STM32_DMA_PERIPH_TX>,
+		<&dma1 6 2 STM32_DMA_PERIPH_RX>;
+	dma-names = "tx", "rx";
+};
+
+/ {
+	chosen {
+		zephyr,console = &usart1;
+		zephyr,shell-uart = &usart1;
+		dasharo,debug-i2c = &i2c1;
+		dasharo,output-uart = &usart2;
+	};
+};
