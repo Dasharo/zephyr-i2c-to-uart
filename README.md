@@ -23,6 +23,12 @@ west flash
 
 ## Using
 
-By default, I2C is exposed on PA9 and PA10 pads. See the pinout
-[here](https://os.mbed.com/platforms/ST-Nucleo-L432KC/). All data coming from
-I2C is forwarded to virtual UART which works over USB (CDC-ACM).
+By default, I2C is exposed on PA9 (`CLOCK`) and PA10 (`DATA`) pads. See the
+pinout
+[here](https://os.mbed.com/platforms/ST-Nucleo-L432KC/#arduino-nano-compatible-headers).
+All data coming from I2C is forwarded to virtual UART which works over USB
+(CDC-ACM).
+
+When using with Clevo laptops, following connection must be made:
+* `SMC` - `PA9`
+* `SMD` - `PA10`
