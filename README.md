@@ -23,6 +23,19 @@ west flash
 
 ## Using
 
+### Nucleo F302R8
+
+By default, I2C is exposed on PB8 (`CLOCK`) and PB9 (`DATA`) pads. See the
+pinout [here](https://os.mbed.com/platforms/ST-Nucleo-F302R8/#morpho-headers).
+All data coming from I2C is forwarded to virtual UART which works over USB
+(CDC-ACM).
+
+When using with Clevo laptops, following connection must be made:
+* `SMC` - `PB8`
+* `SMD` - `PB9`
+
+### Nucleo L432KC
+
 By default, I2C is exposed on PA9 (`CLOCK`) and PA10 (`DATA`) pads. See the
 pinout
 [here](https://os.mbed.com/platforms/ST-Nucleo-L432KC/#arduino-nano-compatible-headers).
